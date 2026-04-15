@@ -68,7 +68,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end space-x-4">
+        <div className="navbar-end gap-5">
           <div className="relative">
             <CgShoppingCart className="text-2xl" />
             <span className="absolute -top-2 -right-2 bg-red-500 rounded-full badge p-1 text-white badge-sm">
