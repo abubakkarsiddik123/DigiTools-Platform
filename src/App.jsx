@@ -1,5 +1,6 @@
 
 
+import { useState } from 'react'
 import './App.css'
 import Banner from './Components/Banner/Banner'
 import NavBar from './Components/NavBar/NavBar'
@@ -14,13 +15,14 @@ const getProducts =async ()=>{
 const productsPromise = getProducts();
 
 function App() {
+  const [carts,setCarts]=useState([])
 
   return (
     <>
-     <NavBar/>
+     <NavBar carts={carts}/>
      <Banner/>
      <Statas/>
-     <Products  productsPromise={productsPromise} />
+     <Products  productsPromise={productsPromise} carts={carts} setCarts={setCarts} />
     </>
   )
 }

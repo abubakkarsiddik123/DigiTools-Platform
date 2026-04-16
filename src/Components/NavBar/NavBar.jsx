@@ -1,7 +1,8 @@
 import React from "react";
 import { CgShoppingCart } from "react-icons/cg";
+// import CartIcon from '../../../public/products/shopping-cart.png'
 
-const NavBar = () => {
+const NavBar = ({ carts }) => {
   return (
     <div>
       <div className="navbar bg-base-100  max-w-[1200px] mx-auto">
@@ -71,9 +72,12 @@ const NavBar = () => {
         <div className="navbar-end gap-5">
           <div className="relative">
             <CgShoppingCart className="text-2xl" />
-            <span className="absolute -top-2 -right-2 bg-red-500 rounded-full badge p-1 text-white badge-sm">
-              2
-            </span>
+            {/* <img src={CartIcon} alt="" /> */}
+            {carts.length > 0 && (
+              <span className="absolute -top-3 -right-2 bg-red-500 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs">
+                {carts.length}
+              </span>
+            )}
           </div>
           <a className="font-semibold" href="login">
             Login

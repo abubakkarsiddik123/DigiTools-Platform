@@ -1,10 +1,22 @@
 import React from "react";
 import EmptyImage from "../../../assets/banner/trolley.png";
+import { toast } from "react-toastify";
 
-const Cart = ({ carts }) => {
+const Cart = ({ carts,setCarts }) => {
+ const totalPrice = carts.reduce((sub, item) => sub + item.price, 0);
+ const handlePayment =()=>{
+  setCarts([])
+  toast.success("Payment successful")
+ }
+
+const handleDelete=(item)=>{
+    const filteredArray =carts.filter(i=> i.id !== item.id)
+    setCarts(filteredArray)
+    toast.success('Removed from cart')
+  }
 
   return (
-    <div className="p-10 bg-gray-50 rounded-lg mb-5 max-w-7xl mx-auto ">
+    <div className="p-10 bg-gray-50 rounded-lg mb-5 max-w-[1200px] mx-auto ">
       <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
 
       {carts.length === 0 ? (
@@ -38,17 +50,17 @@ const Cart = ({ carts }) => {
                   </div>
                 </div>
                 <div>
-                  <p className="text-red-500 cursor-pointer">delete</p>
+                  <p onClick={()=>handleDelete(item)} className="text-red-500 cursor-pointer">delete</p>
                 </div>
             
               </div>
             ))}
           </div>
-          <div className="flex justify-between items-center text-[#627382] mt-5">
-            <p>Total</p>
-            {/* <div>$ {totalPrice}</div> */}
+          <div className="flex justify-between items-center mt-5">
+            <p className=" text-[#627382]">Total</p>
+            <p className="text-2xl font-bold text-[#101727] ">$ {totalPrice}</p>
           </div>
-          <button className="btn w-full mt-5 bg-gradient-to-r from-[#4F39F6] to-[#9514FA] text-white  rounded-full p-4">
+          <button onClick={handlePayment} className="btn w-full mt-5 bg-gradient-to-r from-[#4F39F6] to-[#9514FA] text-white  rounded-full p-4">
             Proceed to Checkout
           </button>
         </>

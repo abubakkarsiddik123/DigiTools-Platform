@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { MdCheck } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Carts = ({ item ,carts,setCarts}) => {
   const [isProduct, setIsProduct] = useState(false);
   const handleProducts=()=>{
     setIsProduct(true)
     setCarts([...carts,item])
+    toast.success("Product added successfully")
   }
   return (
     <div className="border-2 rounded-2xl border-[#F2F2F2] p-4 space-y-4">

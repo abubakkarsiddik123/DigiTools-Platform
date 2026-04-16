@@ -1,11 +1,11 @@
-import React, { use, useState } from 'react';
+import React, { use, useState, } from 'react';
 import Tabs from './Tabs/Tabs';
 import ProductsCart from '../ProductsCart/ProductsCart';
 import Cart from './Cart/Cart';
 
-const Products = ({productsPromise}) => {
+const Products = ({productsPromise,carts,setCarts}) => {
     const [activeTabs,setActiveTabs]=useState("products")
-    const [carts,setCarts]=useState([])
+    
     console.log(carts);
     const products=use(productsPromise)
     return (
@@ -14,8 +14,8 @@ const Products = ({productsPromise}) => {
             <h2 className='text-5xl font-extrabold text-[#101727] '>Premium Digital Tools</h2>
             <p className='text-[#627382]  '>Choose from our curated collection of premium digital products designed <br />to boost your productivity and creativity.</p>
             </div> 
-            <Tabs activeTabs={activeTabs} setActiveTabs={setActiveTabs}/>
-            { activeTabs === 'products' ? <ProductsCart products={products} carts={carts} setCarts={setCarts} /> :<Cart carts={carts} /> }
+            <Tabs activeTabs={activeTabs} setActiveTabs={setActiveTabs} carts={carts} />
+            { activeTabs === 'products' ? <ProductsCart products={products} carts={carts} setCarts={setCarts} /> :<Cart carts={carts} setCarts={setCarts} /> }
            
         </div>
     );

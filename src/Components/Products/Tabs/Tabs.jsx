@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tabs = ({activeTabs,setActiveTabs}) => {
+const Tabs = ({activeTabs,setActiveTabs,carts}) => {
   console.log(activeTabs);
   return (
      <div className=" mx-auto flex justify-center items-center gap-4 m-10 border-[#F6F6F6] rounded-full border w-3xs">
@@ -41,8 +41,7 @@ const Tabs = ({activeTabs,setActiveTabs}) => {
             : "text-[#25065D] "}
           `}
         >
-          Carts
-          {/* {`Carts (${carts.length})`} */}
+          {`Carts(${carts.length})`}
         </div>
       </label>
 
