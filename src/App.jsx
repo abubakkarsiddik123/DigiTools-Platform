@@ -8,6 +8,7 @@ import Products from './Components/Products/Products'
 import Statas from './Components/Statas/Statas'
 import Steps from './Components/Steps/Steps'
 import Pricing from './Components/Pricing/Pricing'
+import Footer from './Components/Footer/Footer'
 
 const getProducts =async ()=>{
   const res = await fetch ('/Data.json')
@@ -27,6 +28,7 @@ function App() {
      <Products  productsPromise={productsPromise} carts={carts} setCarts={setCarts} />
      <Steps/>
      <Pricing/>
+     <Footer/>
     </>
   )
 }
